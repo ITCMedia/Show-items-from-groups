@@ -75,19 +75,6 @@ $Shop_Controller_Show = new Shop_Controller_Show($oShop);
 // меняется на 
 $Shop_Controller_Show = new My_Shop_Controller_Show($oShop);
 
-// Ну а если заменить 
-
-$this->shopItems()
- ->queryBuilder()
- ->where('shop_items.shop_group_id', '=', 0);
-
-//на 
-
-$this->shopItems()
- ->queryBuilder()
- ->where('shop_items.shop_group_id', 'NOT IN', Core_QueryBuilder::select('id')->from('shop_groups')->where('shop_id', '=', $oShop->id)->where('active', '=', 0));
-
-//То и в корне будут выводиться как следует.
 
 /************************************  Для ИС  ************************************/
 
